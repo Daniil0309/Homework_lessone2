@@ -16,6 +16,8 @@ def mark_task():  # Объявление функции для отметки в
     if selected_task:  # Проверка, выбрана ли какая-то задача
         task_listBox.itemconfig(selected_task, bg="lightblue")  # Изменение цвета фона выбранной задачи на голубой
 
+def clear_task(): # Объявление функции для очистки всего списка задач
+    task_listBox.delete(0, tk.END)  # Очистка списка задач
 
 root = tk.Tk()  # Создание главного окна
 root.title("Task list")  # Установка заголовка окна
@@ -42,5 +44,8 @@ text2.pack(pady=5)  # Размещение метки в главном окне
 
 task_listBox = tk.Listbox(root, height=10, width=50, bg="white")  # Создание списка для задач
 task_listBox.pack(pady=5)  # Размещение списка в главном окне с небольшим отступом
+
+clear_buton = tk.Button(root, text="Очистить список", command=clear_task) # Создание кнопки для очистки списка задач
+clear_buton.pack(pady=5)    #Размещение кнопки в главном окне с небольшим отступом
 
 root.mainloop()  # Запуск главного цикла приложения
